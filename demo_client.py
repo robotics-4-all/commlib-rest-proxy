@@ -7,6 +7,7 @@ from typing import Any, Dict, Optional, Union
 from commlib.node import Node
 from commlib.msg import RPCMessage
 
+
 class RESTProxyMessage(RPCMessage):
     class Request(RPCMessage.Request):
         host: Optional[str] = "localhost"

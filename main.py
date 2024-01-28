@@ -45,11 +45,6 @@ class RESTProxyMessage(RPCMessage):
         status_code: int = 200
 
 
-class RestProxyServer:
-    def __init__(self, service_map):
-        self._service_map = service_map
-
-
 class RESTProxy(Node):
     """RESTProxy.
 
@@ -135,6 +130,7 @@ if __name__ == "__main__":
 
     if BROKER_TYPE in ("redis", "REDIS", "Redis"):
         from commlib.transports.redis import ConnectionParameters
+
         conn_params = ConnectionParameters(
             host=BROKER_HOST,
             port=BROKER_PORT,
@@ -144,6 +140,7 @@ if __name__ == "__main__":
         )
     elif BROKER_TYPE in ("amqp", "AMQP"):
         from commlib.transports.amqp import ConnectionParameters
+
         conn_params = ConnectionParameters(
             host=BROKER_HOST,
             port=BROKER_PORT,
@@ -153,6 +150,7 @@ if __name__ == "__main__":
         )
     elif BROKER_TYPE in ("mqtt", "MQTT"):
         from commlib.transports.mqtt import ConnectionParameters
+
         conn_params = ConnectionParameters(
             host=BROKER_HOST,
             port=BROKER_PORT,
